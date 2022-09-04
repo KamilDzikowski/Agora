@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"
+     integrity="sha512-/seDHxVfh1NvFUscAj8GsHQVZJvr2jjAoYsNL7As2FCaFHUHYIarl3sRCvVlFgyouVNiRgHIebyLKjpgd1SLDw=="
+     crossorigin="anonymous"></script>
+    
+     <script type="module" src="app.js" defer></script>
+</head>
+<body>
+    <h1> Welcome to Agora </h1>
+
+   
+    
+    <section id="whenSignedOut">
+
+      <button id="signInBtn" class="btn btn-primary">Sign in with Google</button>
+  
+    </section>
+  
+    <section id="whenSignedIn" hidden="true">
+
+      <div class="tab">
+        <button class="tablinks" id = "ProfileTab" onclick="openCity(event, 'London')">Profile</button>
+        <button class="tablinks" id="FeedTab" onclick="openCity(event, 'Paris')">Forum</button>
+      </div>
+      
+      <div id="London" class="tabcontent">
+        <div id="userDetails"></div>
+  
+        <button id="signOutBtn" class="btn btn-primary">Sign Out</button>
+  
+        Name: <input type="text" id="nameField"><br><br>
+
+        <button id="nameChange" class="btn btn-primary">Change Name</button>
+
+  
+        <hr>
+  
+        Opinion: <input type="text" id="opinionField"><br><br>
+        <button id="createThing" class="btn btn-success">Proclaim your opinion</button>
+      
+        <h2>My Opinions</h2>
+  
+        <ul id="thingsList">
+  
+        </ul>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h2>Popular Opinions</h2>
+  
+         <ul id="opinionFeed"> </ul>
+      </div>
+      
+      <div id="Discussion" class="tabcontent">
+         <div id="opinionTitle">OpinionTitle </div>
+         Arguments For: <br>
+         <ul id="argFeedPro"> </ul>
+         Add: <input type="text" id="argForField">
+        <button id="makeArgFor" class="btn btn-success">Formulate</button><br><br>
+          Arguments Against: <br>
+          <ul id="argFeedContra"> </ul>
+          Add: <input type="text" id="argContraField">
+          <button id="makeArdContra" class="btn btn-success">Formulate</button><br><br>
+         
+      </div>
+      
+      <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      document.getElementById("ProfileTab").click();
+      </script>
+  
+      
+    </section>
+  
+  </body>
+</html>
